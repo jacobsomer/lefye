@@ -1,0 +1,60 @@
+html {
+    height: 100%;
+}
+body{
+  background-image: linear-gradient(to bottom, #002255, #002255 80%, #002255 50%, #ff6055);
+  background-size: cover;
+  margin: 0;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+.Home .lander {
+  padding: 80px 0;
+  text-align: center;
+  color: #002255;
+}
+
+.Home .lander h1 {
+  padding: 80px 0;
+  overflow: hidden; /* Ensures the content is not revealed until the animation */
+  border-right: .15em solid orange; /* The typwriter cursor */
+  white-space: nowrap; /* Keeps the content on a single line */
+  margin: 0 auto; /* Gives that scrolling effect as the typing happens */
+  color: 	#ff6055;
+  animation:
+    typing 3.5s steps(40, end),
+    blink-caret .75s step-end infinite;
+
+}
+
+h2 {
+  background-color: grey;
+  background-size: cover;
+  background-repeat: no-repeat;
+  text-align: center;
+}
+
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}
+@keyframes blink-caret {
+  from, to { border-color: transparent }
+  50% { border-color: orange; }
+}
+
+.Home .lander p {
+  font: verdana;
+  text-align: center;
+  display: block;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  margin-left: 0;
+  margin-right: 0;
+  color: 	#ff6055;
+}
+
+.logo{
+  background-image: url(android-chrome-512x512.png)
+}
