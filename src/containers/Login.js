@@ -8,6 +8,7 @@ export default function Login() {
   const { userHasAuthenticated } = useAppContext();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [focused, setFocused] = useState(false);
 
   function validateForm() {
     return email.length > 0 && password.length > 0;
@@ -22,7 +23,7 @@ export default function Login() {
     <div className="Login">
       <Form onSubmit={handleSubmit}>
         <Form.Group size="lg" controlId="email">
-          <Form.Label>Email</Form.Label>
+          <Form.Label style={{color: focused ? 'red' : '#ff6055'}}>Email</Form.Label>
           <Form.Control
             autoFocus
             type="email"
@@ -31,14 +32,14 @@ export default function Login() {
           />
         </Form.Group>
         <Form.Group size="lg" controlId="password">
-          <Form.Label>Password</Form.Label>
+          <Form.Label style={{color: focused ? 'red' : '#ff6055'}} >Password</Form.Label>
           <Form.Control
             type="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
         </Form.Group>
-        <Button block size="lg" type="submit" disabled={!validateForm()}>
+        <Button variant="outline-light" block size="lg" type="submit" disabled={!validateForm()}>
           Login
         </Button>
       </Form>

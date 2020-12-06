@@ -9,13 +9,10 @@ import { LinkContainer } from "react-router-bootstrap";
 import { AppContext } from "./libs/contextLib";
 
 var Scroll = require('react-scroll');
-
 var DirectLink = Scroll.DirectLink;
 var Element = Scroll.Element;
 var Events = Scroll.Events;
 var scrollSpy = Scroll.scrollSpy;
-
-
 
 
 export default function App() {
@@ -24,28 +21,28 @@ export default function App() {
   userHasAuthenticated(false);}
   return (
     <div className="App container py-3">
-      <Navbar bg="light" expand="lg">
-        <LinkContainer to="/">
+      <Navbar outline="light" style={{background:"transparent",color:"white"}} expand="lg" sticky="top" >
+        <LinkContainer to="/" style={{color:"white"}}>
           <Navbar.Brand href="#home">Navigation</Navbar.Brand>
         </LinkContainer>
-        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+        <Navbar.Toggle aria-controls="basic-navbar-nav" style={{background:"white"}}/>
         <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="mr-auto">
+          <Nav className="mr-sm-2">
             <Nav activeKey={window.location.pathname}>
               {isAuthenticated ? (
-                <Nav.Link onClick={handleLogout}>Logout</Nav.Link>
+                <Nav.Link onClick={handleLogout} >Logout</Nav.Link>
               ) : (
                 <>
-                  <LinkContainer to="/signup">
-                    <Nav.Link>Signup</Nav.Link>
+                  <LinkContainer to="/signup" style={{color:"white"}}>
+                    <Nav.Link >Signup</Nav.Link>
                   </LinkContainer>
-                  <LinkContainer to="/login">
-                    <Nav.Link>Login</Nav.Link>
+                  <LinkContainer to="/login" style={{color:"white"}}>
+                    <Nav.Link  >Login</Nav.Link>
                   </LinkContainer>
                 </>
               )}
             </Nav>
-            <NavDropdown title="Dropdown" id="basic-nav-dropdown">
+            <NavDropdown bg="light" title="Dropdown" id="basic-nav-dropdown" >
               <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
               <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>
               <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
