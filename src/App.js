@@ -1,60 +1,63 @@
 import React, { useState } from "react";
 import Routes from "./Routes";
 import { Button, Navbar, NavDropdown,Nav } from 'react-bootstrap'
-import Form from "react-bootstrap/Form";
-import FormControl from "react-bootstrap/FormControl";
 import "./App.css";
-import { Link, animateScroll as scroll } from "react-scroll";
 import { LinkContainer } from "react-router-bootstrap";
-import { AppContext } from "./libs/contextLib";
-
-var Scroll = require('react-scroll');
-var DirectLink = Scroll.DirectLink;
-var Element = Scroll.Element;
-var Events = Scroll.Events;
-var scrollSpy = Scroll.scrollSpy;
+import {ThemeContext, themes} from './libs/contextLib';
 
 
-export default function App() {
-  const [isAuthenticated, userHasAuthenticated] = useState(false);
-  function handleLogout() {
-  userHasAuthenticated(false);}
+let isAuthenticated=false;
+
+class App extends React.Component{
+  constructor(props) {
+    super(props);
+    this.state = {
+      theme: themes.light,
+    };
+
+    this.toggleTheme = () => {
+      this.setState(state => ({
+        theme:
+          state.theme === themes.dark
+            ? themes.light
+            : themes.dark,
+      }));
+    };
+  }
+  
+
+  render() {
   return (
-    <div className="App container py-3">
-      <Navbar outline="light" style={{background:"transparent",color:"white"}} expand="lg" sticky="top" >
-        <LinkContainer to="/" style={{color:"white"}}>
-          <Navbar.Brand href="#home">Navigation</Navbar.Brand>
-        </LinkContainer>
-        <Navbar.Toggle aria-controls="basic-navbar-nav" style={{background:"white"}}/>
-        <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="mr-sm-2">
-            <Nav activeKey={window.location.pathname}>
-              {isAuthenticated ? (
-                <Nav.Link onClick={handleLogout} >Logout</Nav.Link>
-              ) : (
-                <>
-                  <LinkContainer to="/signup" style={{color:"white"}}>
-                    <Nav.Link >Signup</Nav.Link>
-                  </LinkContainer>
-                  <LinkContainer to="/login" style={{color:"white"}}>
-                    <Nav.Link  >Login</Nav.Link>
-                  </LinkContainer>
-                </>
-              )}
+      <div className="Home" >
+        <Navbar outline="light" style={{background: this.state.theme.body}} expand="lg" sticky="top" >
+          <LinkContainer to="/" style={{color:this.state.theme.text}}>
+            <Navbar.Brand href="#home">Navigation</Navbar.Brand>
+          </LinkContainer>
+          <Navbar.Toggle aria-controls="basic-navbar-nav" style={{background:themes.dark.text}}/>
+          <Navbar.Collapse id="basic-navbar-nav">
+            <Nav className="mr-sm-2">
+              <Nav activeKey={window.location.pathname}>
+                {isAuthenticated ? (
+                  <Nav.Link style={{olor:this.state.theme.text}}>Logout</Nav.Link>
+                ) : (
+                  <>
+                    <LinkContainer to="/signup" style={{color:this.state.theme.text}}>
+                      <Nav.Link >Signup</Nav.Link>
+                    </LinkContainer>
+                    <LinkContainer to="/login" style={{color:this.state.theme.text}}>
+                      <Nav.Link  >Login</Nav.Link>
+                    </LinkContainer>
+                  </>
+                )}
+              </Nav>
+              <Button variant="outline-light" onClick={this.toggleTheme}>Mode</Button>
             </Nav>
-            <NavDropdown bg="light" title="Dropdown" id="basic-nav-dropdown" >
-              <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
-              <NavDropdown.Divider />
-              <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
-            </NavDropdown>
-          </Nav>
-        </Navbar.Collapse>
-      </Navbar>
-      <AppContext.Provider value={{ isAuthenticated, userHasAuthenticated }}>
-        <Routes />
-      </AppContext.Provider>
+          </Navbar.Collapse>
+        </Navbar>
+        <div className="app" style={{backgroundImage:this.state.theme.gradient,position:"relative"}} >
+        <Routes/>
+      </div>
     </div>
-  );
+  );}
 }
+export default App;

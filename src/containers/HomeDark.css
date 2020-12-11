@@ -1,15 +1,13 @@
 html {
     height: 100%;
 }
-
-/* body{
-  background-image: linear-gradient(to bottom, white, #f0ad72 80%,white 200%);
+body{
+  background-image: linear-gradient(to bottom, black, #25294B 80%,white 200%);
   background-size: cover;
   margin: 0;
   background-repeat: no-repeat;
   background-attachment: fixed;
-} */
-
+}
 
 #particles{
   position:relative;

@@ -4,11 +4,11 @@ import Home from "./containers/Home";
 import NotFound from "./containers/NotFound";
 import Login from "./containers/Login";
 
-export default function Routes() {
+export default function Routes(props) {
   return (
     <Switch>
       <Route exact path="/">
-        <Home />
+        <Home var={props.var}/>
       </Route>
       <Route exact path="/login">
         <Login />

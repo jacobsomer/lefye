@@ -9,10 +9,10 @@ class ParticleAnimation extends React.Component {
          params={{
            particles: {
              number: {
-               value: 500,
+               value: 200,
                density: {
                  enable: true,
-                 value_area: 2000,
+                 value_area: 1000,
                }
              },
           "color": {
@@ -22,7 +22,7 @@ class ParticleAnimation extends React.Component {
             "enable": true,
             "distance": 150,
             "color": {
-              "value": "#ffffff"
+              "value": "#ff6055"
             },
             "opacity": 0.4,
             "width": 1
