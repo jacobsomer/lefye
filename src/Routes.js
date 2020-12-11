@@ -8,10 +8,10 @@ export default function Routes(props) {
   return (
     <Switch>
       <Route exact path="/">
-        <Home var={props.var}/>
+        <Home theme={props.theme}/>
       </Route>
-      <Route exact path="/login">
-        <Login />
+      <Route exact path="/login"  >
+        <Login theme={props.theme}/>
       </Route>
       <Route>
         <NotFound />

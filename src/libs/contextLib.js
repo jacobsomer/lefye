@@ -2,14 +2,14 @@
 import React from 'react';
 export const themes={
   dark:{
-      body: '#25294b',
+      body: '#08061f',
       text: '#ff6055',
-      borders: 'white',
-      gradient: 'linear-gradient(black, #25294b)'},
+      borders: '#ffffff',
+      gradient: 'linear-gradient(black, #08061f)'},
   light:{
       body: '#f0ad72',
       text: '#ff6055',
-      borders: 'black',
+      borders: '#000000',
       gradient: 'linear-gradient(white, #f0ad72)'}
     }
 

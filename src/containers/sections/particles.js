@@ -15,18 +15,18 @@ class ParticleAnimation extends React.Component {
                  value_area: 1000,
                }
              },
-          "color": {
-            "value": "white"
-          },
-          "line_linked": {
-            "enable": true,
-            "distance": 150,
             "color": {
-              "value": "#ff6055"
+              "value": this.props.color.theme.text
             },
-            "opacity": 0.4,
-            "width": 1
-          },
+            "line_linked": {
+              "enable": true,
+              "distance": 150,
+              "color": {
+                "value": this.props.color.theme.borders
+              },
+              "opacity": 0.4,
+              "width": 1
+            },
            },
          }}
        />

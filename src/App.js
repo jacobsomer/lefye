@@ -7,7 +7,6 @@ import {ThemeContext, themes} from './libs/contextLib';
 
 
 let isAuthenticated=false;
-
 class App extends React.Component{
   constructor(props) {
     super(props);
@@ -28,7 +27,7 @@ class App extends React.Component{
 
   render() {
   return (
-      <div className="Home" >
+      <div className="Home" style={{backgroundImage:this.state.theme.gradient}}>
         <Navbar outline="light" style={{background: this.state.theme.body}} expand="lg" sticky="top" >
           <LinkContainer to="/" style={{color:this.state.theme.text}}>
             <Navbar.Brand href="#home">Navigation</Navbar.Brand>
@@ -38,7 +37,7 @@ class App extends React.Component{
             <Nav className="mr-sm-2">
               <Nav activeKey={window.location.pathname}>
                 {isAuthenticated ? (
-                  <Nav.Link style={{olor:this.state.theme.text}}>Logout</Nav.Link>
+                  <Nav.Link style={{color:this.state.theme.text}}>Logout</Nav.Link>
                 ) : (
                   <>
                     <LinkContainer to="/signup" style={{color:this.state.theme.text}}>
@@ -50,12 +49,18 @@ class App extends React.Component{
                   </>
                 )}
               </Nav>
-              <Button variant="outline-light" onClick={this.toggleTheme}>Mode</Button>
-            </Nav>
+                {(this.state.theme.borders==="#ffffff") ? (
+                    <Button variant="outline-light" style={{color:this.state.theme.text,border:this.state.theme.text}}onClick={this.toggleTheme}>Light Mode</Button>
+                  ) : (
+                    <>
+                     <Button variant="outline-dark" style={{color:this.state.theme.text,border:this.state.theme.text}}onClick={this.toggleTheme}>Dark Mode</Button>
+                    </>
+                  )}
+              </Nav>
           </Navbar.Collapse>
         </Navbar>
-        <div className="app" style={{backgroundImage:this.state.theme.gradient,position:"relative"}} >
-        <Routes/>
+        <div className="app" style={{position:"relative"}} >
+          <Routes theme={this.state}/>
       </div>
     </div>
   );}
