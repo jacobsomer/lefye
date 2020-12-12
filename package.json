@@ -16,6 +16,7 @@
     "react-scripts": "4.0.1",
     "react-scroll": "^1.8.1",
     "react-trianglify": "^2.0.5",
+    "react-native":"^2.0.5",
     "web-vitals": "^0.2.4"
   },
   "scripts": {

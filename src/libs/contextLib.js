@@ -15,16 +15,16 @@ export const themes={
       gradient: 'linear-gradient(white, #f0ad72)'},
   dark1:{
       id:"d1",
-      body: '#2B4E2E',
+      body: '#8CB864',
       text: '#b86664',
-      borders: '#ffffff',
-      gradient: 'linear-gradient(black, #2B4E2E 200%)'},
+      borders: '#b86664',
+      gradient: 'linear-gradient(black, #8CB864 200%)'},
   light1:{
       id:"l1",
-      body: '#25294b',
-      text: '#ffffff',
+      body: '#254B49',
+      text: '#4b2527',
       borders: '#4b2527',
-      gradient: 'linear-gradient(white, #25294b)'},
+      gradient: 'linear-gradient(white, #254B49)'},
   dark2:{
       id:"d2",
       body: '#4B253C',

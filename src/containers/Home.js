@@ -6,6 +6,8 @@ import Title from './sections/title';
 
 
 export default function Home(props) {
+
+  
   return (
     <div className="Home" >
       <div style={{background:props.theme.theme.gradient,
@@ -27,8 +29,8 @@ export default function Home(props) {
             left: "0",
             top: "0",
             backgroundImage:props.theme.theme.gradient}}>
-          <div id="cards" >
-            <Presentation style={{verticalAlign:"middle"}} color={props.theme.theme}/>
+          <div id="cards" style={{top:"40vh",left:"5vw",position:"relative"}}>
+            <Presentation  theme={props.theme.theme}/>
           </div>
       </div>
       

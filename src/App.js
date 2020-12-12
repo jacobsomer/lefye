@@ -15,9 +15,10 @@ class App extends React.Component{
     this.state = {
       theme: themes.light,
       position: window.pageYOffset,
-      previous:themes.light
+      previous:themes.light,
+      height:1000,
+      width:1000
     };
-
     this.toggleTheme = () => {
       this.setState(state => ({
         theme:
@@ -37,21 +38,26 @@ class App extends React.Component{
 
     this.getPosition =() =>{
       this.setState(state=>({
-        position:window.pageYOffset
-      }))
+        position:window.pageYOffset,
+        
+      }));
+      this.setState(state=>({
+        height:window.innerHeight,        
+      }));
   }}
 
-  
+
   listenScrollEvent = e => {
     const darkModeSet=new Set([themes.dark,themes.dark1,themes.dark2]);
+    this.setState({height: window.innerHeight});   
     if (darkModeSet.has(this.state.theme)){
-      if (window.scrollY <= 760) {
+      if (window.scrollY <= this.state.height) {
         this.setState({position: window.scrollY});
         this.setState(state => ({
           theme:
             themes.dark,
         }));
-      } else if (window.scrollY > 760 & window.scrollY<=2*760){
+      } else if (window.scrollY > this.state.height && window.scrollY<=2*this.state.height){
         this.setState({position: window.scrollY})
         this.setState(state => ({
           theme:
@@ -68,13 +74,13 @@ class App extends React.Component{
 
     }
     else{
-      if (window.scrollY <= 760) {
+      if (window.scrollY <= this.state.height) {
         this.setState({position: window.scrollY});
         this.setState(state => ({
           theme:
             themes.light,
         }));
-      } else if (window.scrollY >760 && window.scrollY<2*760){
+      } else if (window.scrollY >this.state.height && window.scrollY<2*this.state.height){
         this.setState({position: window.scrollY})
         this.setState(state => ({
           theme:
@@ -109,7 +115,7 @@ class App extends React.Component{
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="mr-sm-2">
               <Nav activeKey={window.location.pathname}>
-                
+
                 {isAuthenticated ? (
                   <Nav.Link style={{color:this.state.theme.text}}>Logout</Nav.Link>
                 ) : (
