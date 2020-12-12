@@ -7,22 +7,95 @@ import {ThemeContext, themes} from './libs/contextLib';
 
 
 let isAuthenticated=false;
+
+
 class App extends React.Component{
   constructor(props) {
     super(props);
     this.state = {
       theme: themes.light,
+      position: window.pageYOffset,
+      previous:themes.light
     };
 
     this.toggleTheme = () => {
       this.setState(state => ({
         theme:
-          state.theme === themes.dark
-            ? themes.light
-            : themes.dark,
+          state.theme!==themes.light
+            ?state.theme!==themes.light1
+              ? state.theme!==themes.light2
+                ?state.theme!==themes.dark
+                  ?state.theme!==themes.dark1
+                    ?themes.light2
+                    :themes.light1
+                  :themes.light
+                :themes.dark2
+              :themes.dark1
+            :themes.dark
       }));
     };
+
+    this.getPosition =() =>{
+      this.setState(state=>({
+        position:window.pageYOffset
+      }))
+  }}
+
+  
+  listenScrollEvent = e => {
+    const darkModeSet=new Set([themes.dark,themes.dark1,themes.dark2]);
+    if (darkModeSet.has(this.state.theme)){
+      if (window.scrollY <= 760) {
+        this.setState({position: window.scrollY});
+        this.setState(state => ({
+          theme:
+            themes.dark,
+        }));
+      } else if (window.scrollY > 760 & window.scrollY<=2*760){
+        this.setState({position: window.scrollY})
+        this.setState(state => ({
+          theme:
+              themes.dark1,
+        }));
+      }
+      else {
+        this.setState({position: window.scrollY})
+        this.setState(state => ({
+          theme:
+              themes.dark2,
+        }));
+      }
+
+    }
+    else{
+      if (window.scrollY <= 760) {
+        this.setState({position: window.scrollY});
+        this.setState(state => ({
+          theme:
+            themes.light,
+        }));
+      } else if (window.scrollY >760 && window.scrollY<2*760){
+        this.setState({position: window.scrollY})
+        this.setState(state => ({
+          theme:
+              themes.light1,
+        }));
+      }
+      else {
+        this.setState({position: window.scrollY})
+        this.setState(state => ({
+          theme:
+              themes.light2,
+        }));
+      }
+    }
+    
   }
+
+  componentDidMount() {
+    window.addEventListener('scroll', this.listenScrollEvent)
+  }
+  
   
 
   render() {
@@ -32,10 +105,11 @@ class App extends React.Component{
           <LinkContainer to="/" style={{color:this.state.theme.text}}>
             <Navbar.Brand href="#home">Navigation</Navbar.Brand>
           </LinkContainer>
-          <Navbar.Toggle aria-controls="basic-navbar-nav" style={{background:themes.dark.text}}/>
+          <Navbar.Toggle aria-controls="basic-navbar-nav" style={{background:this.state.theme.text}}/>
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="mr-sm-2">
               <Nav activeKey={window.location.pathname}>
+                
                 {isAuthenticated ? (
                   <Nav.Link style={{color:this.state.theme.text}}>Logout</Nav.Link>
                 ) : (
@@ -48,8 +122,9 @@ class App extends React.Component{
                     </LinkContainer>
                   </>
                 )}
+               
               </Nav>
-                {(this.state.theme.borders==="#ffffff") ? (
+                {(this.state.theme.id==="d0" || this.state.theme.id==="d1" || this.state.theme.id==="d2") ? (
                     <Button variant="outline-light" style={{color:this.state.theme.text,border:this.state.theme.text}}onClick={this.toggleTheme}>Light Mode</Button>
                   ) : (
                     <>
@@ -58,10 +133,11 @@ class App extends React.Component{
                   )}
               </Nav>
           </Navbar.Collapse>
+         
         </Navbar>
         <div className="app" style={{position:"relative"}} >
           <Routes theme={this.state}/>
-      </div>
+        </div>
     </div>
   );}
 }

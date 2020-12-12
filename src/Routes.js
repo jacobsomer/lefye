@@ -8,7 +8,7 @@ export default function Routes(props) {
   return (
     <Switch>
       <Route exact path="/">
-        <Home theme={props.theme}/>
+        <Home theme={props.theme} previous={props.previous}/>
       </Route>
       <Route exact path="/login"  >
         <Login theme={props.theme}/>
