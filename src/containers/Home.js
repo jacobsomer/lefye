@@ -10,9 +10,8 @@ export default function Home(props) {
   
   return (
     <div className="Home" >
-      <div style={{background:props.theme.theme.gradient,
+      <div style={{background:"",
         width: "100%",
-        height: "100vh",
         left: "0",
         top: "0",
         position:"relative"}}>
@@ -21,25 +20,11 @@ export default function Home(props) {
           </div>
           <div id="particles" position="relative">
             <ParticleAnimation color={props.theme}/>
+            
           </div>
-      </div>
-      <div style={{ backgroundSize: "auto",
-            width: "100%",
-            height: "100vh",
-            left: "0",
-            top: "0",
-            backgroundImage:props.theme.theme.gradient}}>
-          <div id="cards" style={{top:"40vh",left:"5vw",position:"relative"}}>
+          <div id="cards" style={{top:"24vh",position:"absolute"}}>
             <Presentation  theme={props.theme.theme}/>
           </div>
-      </div>
-      
-      <div style={{ backgroundSize: "auto",
-            width: "100%",
-            height: "100vh",
-            left: "0",
-            top: "0",
-            backgroundImage:props.theme.theme.gradient}}>
       </div>
     </div>
     

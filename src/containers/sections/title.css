@@ -2,7 +2,7 @@
 .lander {
     padding-bottom: 100px 0;
     overflow: hidden; /* Ensures the content is not revealed until the animation */
-    border-right: .15em solid; /* The typwriter cursor */
+    border-right: .0 solid; /* The typwriter cursor */
     white-space: nowrap; /* Keeps the content on a single line */
     margin: 0 auto; /* Gives that scrolling effect as the typing happens */
     animation:

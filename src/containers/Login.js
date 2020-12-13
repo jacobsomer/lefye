@@ -10,10 +10,10 @@ export default function userHasAuthenticatedLogin(props) {
   function LogIn (props){
     const isLoggedIn=(props.theme.borders==="#ffffff");
   if (isLoggedIn){
-    return (<Button variant="outline-dark" style={{color:props.theme.text, position:"center",background:"white"}} type="submit" block>
+    return (<Button  variant="outline-light" style={{color:props.theme.text,outlineColor:"#fff"}} type="submit" block>
     Submit
   </Button>)}
-  return  (<Button variant="outline-light" style={{color:props.theme.text,position:"center",background:"black"}} type="submit" block>
+  return  (<Button  variant="outline-dark" style={{color:props.theme.text,outlineColor:"#000"}} type="submit" block>
             Submit
           </Button>)
   }

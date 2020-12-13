@@ -1,5 +1,6 @@
 import React from 'react';
 import {Image} from 'react-bootstrap';
+import "./presentation.css";
 
 import Listen from "./../images/Logos/Listen.svg?text=Noc";
 import Listen1 from "./../images/Logos/Listen1.svg?text=Noc";
@@ -20,7 +21,7 @@ import Analytics from "./../images/Logos/analytics.svg?text=Noc";
 import Analytics1 from "./../images/Logos/analytics1.svg?text=Noc";
 import Analytics2 from "./../images/Logos/analytics2.svg?text=Noc";
 import Analytics3 from "./../images/Logos/analytics3.svg?text=Noc";
-
+import FadeIn from 'react-fade-in';
 
 import {ThemeContext, themes} from './../../libs/contextLib';
 
@@ -28,39 +29,71 @@ function Col(props){
   const cur=props.theme;
   if (cur===themes.dark){
     return (<div>
-        <Image src={Logo} style={{height:'auto',width:'18vw'}}fluid />  
-        <Image src={Arrow} style={{width:"18vw"}}fluid />  
-        <Image src={Analytics} style={{width:"18vw"}} fluid />  
-        <Image src={Arrow} style={{width:"18vw"}}fluid />  
-        <Image src={Listen} style={{width:"18vw"}}fluid />
-      </div>)
+      <div style={{position:"relative", left:"41vw"}}>  
+       <FadeIn delay="1000" transitionDuration="1000">
+         <Image src={Logo} style={{height:'22vh',width:'18vw'}}fluid /> 
+         <FadeIn delay="1000" transitionDuration="1000">
+           <Image src={Analytics} style={{height:'22vh',width:"18vw"}} fluid /> 
+         </FadeIn> 
+         <div style={{ position:"relative",height:'22vh'}}>
+            <FadeIn delay="1000" transitionDuration="1000">
+              <Image src={Listen} style={{position:'relative',top:"5vh",height:'22vh',width:"18vw"}} fluid /> 
+            </FadeIn >
+          </div>
+       </FadeIn>
+       </div>
+           </div>)
   }
   else if (cur===themes.dark1){
     return(<div>
-      <Image src={Logo1} style={{height:'auto',width:'18vw'}}fluid />  
-      <Image src={Arrow1} style={{width:"18vw"}}fluid />  
-      <Image src={Analytics1} style={{width:"18vw"}} fluid />  
-      <Image src={Arrow1} style={{width:"18vw"}}fluid />  
-      <Image src={Listen1} style={{width:"18vw"}}fluid />
-    </div>)
+      <div style={{position:"relative", left:"41vw"}}>  
+       <FadeIn delay="1000" transitionDuration="1000">
+         <Image src={Logo1} style={{height:'22vh',width:'18vw'}}fluid /> 
+         <FadeIn delay="1000" transitionDuration="1000">
+           <Image src={Analytics1} style={{height:'22vh',width:"18vw"}} fluid /> 
+         </FadeIn> 
+         <div style={{ position:"relative",height:'22vh'}}>
+            <FadeIn delay="1000" transitionDuration="1000">
+              <Image src={Listen1} style={{position:'relative',top:"5vh",height:'22vh',width:"18vw"}} fluid /> 
+            </FadeIn >
+          </div>
+       </FadeIn>
+       </div>
+           </div>)
   }
   else if (cur===themes.light){
     return  (<div>
-      <Image src={Logo2} style={{height:'auto',width:'18vw'}}fluid />  
-      <Image src={Arrow2} style={{width:"18vw"}}fluid />  
-      <Image src={Analytics2} style={{width:"18vw"}} fluid />  
-      <Image src={Arrow2} style={{width:"18vw"}}fluid />  
-      <Image src={Listen2} style={{width:"18vw"}}fluid />
-    </div>)
+      <div style={{position:"relative", left:"41vw"}}>  
+       <FadeIn delay="1000" transitionDuration="1000">
+         <Image src={Logo2} style={{height:'22vh',width:'18vw'}}fluid /> 
+         <FadeIn delay="1000" transitionDuration="1000">
+           <Image src={Analytics2} style={{height:'22vh',width:"18vw"}} fluid /> 
+         </FadeIn> 
+         <div style={{ position:"relative",height:'22vh'}}>
+            <FadeIn delay="1000" transitionDuration="1000">
+              <Image src={Listen2} style={{position:'relative',top:"5vh",height:'22vh',width:"18vw"}} fluid /> 
+            </FadeIn >
+          </div>
+       </FadeIn>
+       </div>
+           </div>)
   }
   else{
     return (<div>
-      <Image src={Logo3} style={{height:'auto',width:'18vw'}}fluid />  
-      <Image src={Arrow3} style={{width:"18vw"}}fluid />  
-      <Image src={Analytics3} style={{width:"18vw"}} fluid />  
-      <Image src={Arrow3} style={{width:"18vw"}}fluid />  
-      <Image src={Listen3} style={{width:"18vw"}}fluid />
-    </div>)
+      <div style={{position:"relative", left:"41vw"}}>  
+       <FadeIn delay="1000" transitionDuration="1000">
+         <Image src={Logo2} style={{height:'22vh',width:'18vw'}}fluid /> 
+         <FadeIn delay="1000" transitionDuration="1000">
+           <Image src={Analytics2} style={{height:'22vh',width:"18vw"}} fluid /> 
+         </FadeIn> 
+         <div style={{ position:"relative",height:'22vh'}}>
+            <FadeIn delay="1000" transitionDuration="1000">
+              <Image src={Listen2} style={{position:'relative',top:"5vh",height:'22vh',width:"18vw"}} fluid /> 
+            </FadeIn >
+          </div>
+       </FadeIn>
+       </div>
+           </div>)
   }
 }
 class Presentation extends React.Component {

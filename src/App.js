@@ -47,66 +47,66 @@ class App extends React.Component{
   }}
 
 
-  listenScrollEvent = e => {
-    const darkModeSet=new Set([themes.dark,themes.dark1,themes.dark2]);
-    this.setState({height: window.innerHeight});   
-    if (darkModeSet.has(this.state.theme)){
-      if (window.scrollY <= this.state.height) {
-        this.setState({position: window.scrollY});
-        this.setState(state => ({
-          theme:
-            themes.dark,
-        }));
-      } else if (window.scrollY > this.state.height && window.scrollY<=2*this.state.height){
-        this.setState({position: window.scrollY})
-        this.setState(state => ({
-          theme:
-              themes.dark1,
-        }));
-      }
-      else {
-        this.setState({position: window.scrollY})
-        this.setState(state => ({
-          theme:
-              themes.dark2,
-        }));
-      }
+  // listenScrollEvent = e => {
+  //   const darkModeSet=new Set([themes.dark,themes.dark1,themes.dark2]);
+  //   this.setState({height: window.innerHeight});   
+  //   if (darkModeSet.has(this.state.theme)){
+  //     if (window.scrollY <= this.state.height) {
+  //       this.setState({position: window.scrollY});
+  //       this.setState(state => ({
+  //         theme:
+  //           themes.dark,
+  //       }));
+  //     } else if (window.scrollY > this.state.height && window.scrollY<=2*this.state.height){
+  //       this.setState({position: window.scrollY})
+  //       this.setState(state => ({
+  //         theme:
+  //             themes.dark1,
+  //       }));
+  //     }
+  //     else {
+  //       this.setState({position: window.scrollY})
+  //       this.setState(state => ({
+  //         theme:
+  //             themes.dark2,
+  //       }));
+  //     }
 
-    }
-    else{
-      if (window.scrollY <= this.state.height) {
-        this.setState({position: window.scrollY});
-        this.setState(state => ({
-          theme:
-            themes.light,
-        }));
-      } else if (window.scrollY >this.state.height && window.scrollY<2*this.state.height){
-        this.setState({position: window.scrollY})
-        this.setState(state => ({
-          theme:
-              themes.light1,
-        }));
-      }
-      else {
-        this.setState({position: window.scrollY})
-        this.setState(state => ({
-          theme:
-              themes.light2,
-        }));
-      }
-    }
+  //   }
+  //   else{
+  //     if (window.scrollY <= this.state.height) {
+  //       this.setState({position: window.scrollY});
+  //       this.setState(state => ({
+  //         theme:
+  //           themes.light,
+  //       }));
+  //     } else if (window.scrollY >this.state.height && window.scrollY<2*this.state.height){
+  //       this.setState({position: window.scrollY})
+  //       this.setState(state => ({
+  //         theme:
+  //             themes.light1,
+  //       }));
+  //     }
+  //     else {
+  //       this.setState({position: window.scrollY})
+  //       this.setState(state => ({
+  //         theme:
+  //             themes.light2,
+  //       }));
+  //     }
+  //   }
     
-  }
+  // }
 
-  componentDidMount() {
-    window.addEventListener('scroll', this.listenScrollEvent)
-  }
+  // componentDidMount() {
+  //   window.addEventListener('scroll', this.listenScrollEvent)
+  // }
   
   
 
   render() {
   return (
-      <div className="Home" style={{backgroundImage:this.state.theme.gradient}}>
+      <div className="Home" style={{backgroundImage:this.state.theme.gradient,height:"300vh"}}>
         <Navbar outline="light" style={{background: this.state.theme.body}} expand="lg" sticky="top" >
           <LinkContainer to="/" style={{color:this.state.theme.text}}>
             <Navbar.Brand href="#home">Navigation</Navbar.Brand>
