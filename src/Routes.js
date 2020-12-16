@@ -3,7 +3,8 @@ import { Route, Switch } from "react-router-dom";
 import Home from "./containers/Home";
 import NotFound from "./containers/NotFound";
 import Login from "./containers/Login";
-
+import AboutUs from "./containers/AboutUs";
+import Wall from "./containers/Wall"
 export default function Routes(props) {
   return (
     <Switch>
@@ -13,8 +14,14 @@ export default function Routes(props) {
       <Route exact path="/login"  >
         <Login theme={props.theme}/>
       </Route>
+      <Route exact path="/AboutUs"  >
+        <AboutUs theme={props.theme}/>
+      </Route>
+      <Route exact path="/Wall"  >
+        <Wall theme={props.theme}/>
+      </Route>
       <Route>
-        <NotFound />
+        <NotFound/>
       </Route>
     </Switch>
   );

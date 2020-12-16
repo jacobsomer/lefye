@@ -21,11 +21,9 @@ export default function userHasAuthenticatedLogin(props) {
 
   return (
     <div className="Login"  style={{background:props.theme.theme.gradient,
-    width: "100%",
-    height: "100vh",
-    left: "0",
-    top: "0",
-    position:"relative"}}>
+      width: "100%",
+      height: "100vh",
+      }}>
       <div id="particles" position="absolute">
           <ParticleAnimation color={props.theme}/>
       </div>

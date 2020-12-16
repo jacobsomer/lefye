@@ -1,0 +1,14 @@
+.image-container {
+    text-align: center;
+    overflow: hidden;
+    max-width: 10px;
+}
+
+
+.image-container #image{
+    display: inline-block;
+    width: inherit;
+}
+.image-container #content{
+    display: inline-block;
+}
