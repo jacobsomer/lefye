@@ -18,7 +18,7 @@ export default function Routes(props) {
         <AboutUs theme={props.theme}/>
       </Route>
       <Route exact path="/Wall"  >
-        <Wall theme={props.theme}/>
+        <Wall theme={props.theme} dims={props.dims}/> 
       </Route>
       <Route>
         <NotFound/>

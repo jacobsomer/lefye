@@ -61,64 +61,18 @@ class App extends React.Component{
       this.setState(state=>({
         height:window.innerHeight,        
       }));
+      this.setState(state=>({
+        width:window.innerWidth,        
+      }));
   }}
 
   listenScrollEvent = e => {
-    const darkModeSet=new Set([themes.dark,themes.dark1,themes.dark2]);
     this.setState({position: window.scrollY}) ;
-    this.setState({height:window.innerHeight})
+    this.setState({width: window.innerWidth}) ;
+    this.setState({height:window.innerHeight});
+    this.getPosition();
   }
 
-  // listenScrollEvent = e => {
-  //   const darkModeSet=new Set([themes.dark,themes.dark1,themes.dark2]);
-  //   this.setState({height: window.innerHeight});   
-  //   if (darkModeSet.has(this.state.theme)){
-  //     if (window.scrollY <= this.state.height) {
-  //       this.setState({position: window.scrollY});
-  //       this.setState(state => ({
-  //         theme:
-  //           themes.dark,
-  //       }));
-  //     } else if (window.scrollY > this.state.height && window.scrollY<=2*this.state.height){
-  //       this.setState({position: window.scrollY})
-  //       this.setState(state => ({
-  //         theme:
-  //             themes.dark1,
-  //       }));
-  //     }
-  //     else {
-  //       this.setState({position: window.scrollY})
-  //       this.setState(state => ({
-  //         theme:
-  //             themes.dark2,
-  //       }));
-  //     }
-
-  //   }
-  //   else{
-  //     if (window.scrollY <= this.state.height) {
-  //       this.setState({position: window.scrollY});
-  //       this.setState(state => ({
-  //         theme:
-  //           themes.light,
-  //       }));
-  //     } else if (window.scrollY >this.state.height && window.scrollY<2*this.state.height){
-  //       this.setState({position: window.scrollY})
-  //       this.setState(state => ({
-  //         theme:
-  //             themes.light1,
-  //       }));
-  //     }
-  //     else {
-  //       this.setState({position: window.scrollY})
-  //       this.setState(state => ({
-  //         theme:
-  //             themes.light2,
-  //       }));
-  //     }
-  //   }
-    
-  // }
 
   componentDidMount() {
     window.addEventListener('scroll', this.listenScrollEvent)

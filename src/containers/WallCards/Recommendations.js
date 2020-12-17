@@ -1,25 +1,22 @@
 import React from 'react'
-import { Card, Icon, Image } from 'semantic-ui-react'
-import './Recommendations.css'
+import { Card} from 'react-bootstrap'
+
+import Logo from './../images/waterfall.jpg'
 class Reccomendation extends React.Component{
   render() {
   return(
-    <Card className="image-container" fluid={false} style={{backgroundColor:this.props.info.theme.text}}>
-        <Image style={{display: 'inline-block'}}src='https://react.semantic-ui.com/images/avatar/large/daniel.jpg' wrapped ui={true} />
-      <Card.Content style={{display: 'inline-block'}} >
-        <Card.Header>Daniel</Card.Header>``
-        <Card.Meta>Joined in 2016</Card.Meta>
-        <Card.Description>
-          Daniel is a comedian living in Nashville.
-        </Card.Description>
-      </Card.Content>
-      <Card.Content extra>
-        <a>
-          <Icon name='user' />
-          10 Friends
-        </a>
-      </Card.Content>      
-    </Card>
+      <Card  >
+        <Card.Img variant="top" src={Logo} />
+        <Card.Body>
+          <Card.Title style={{color:this.props.info.theme.body}}>Card Title</Card.Title>
+          <Card.Text >
+            <div style={{color:this.props.info.theme.body}} >
+              Some quick example text to build on the card title and make up the bulk of
+              the card's content.
+            </div>
+          </Card.Text>
+        </Card.Body>
+      </Card>
   );
   }
 }
