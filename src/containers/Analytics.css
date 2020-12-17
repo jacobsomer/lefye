@@ -1,0 +1,12 @@
+.button_container  {
+    text-align: center;
+    height: 10vh;
+    
+}
+
+.button_container button {
+    background: transparent;
+    border: none !important;
+    color: yellow;
+    height: 10vh;
+}

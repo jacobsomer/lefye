@@ -1,0 +1,42 @@
+ .landed {
+    text-align: center;
+}
+
+ .landed h1 {
+    padding: 80px 0;
+    overflow: hidden; /* Ensures the content is not revealed until the animation */
+    white-space: nowrap; /* Keeps the content on a single line */
+    margin: 0 auto; /* Gives that scrolling effect as the typing happens */
+    font-family: Helvetica;
+
+}
+
+.landed .data h3 {
+    padding: 10px 0;
+    overflow: hidden; /* Ensures the content is not revealed until the animation */
+    white-space: nowrap; /* Keeps the content on a single line */
+}
+
+ .landed .data button {
+    padding: 5px 0;
+}
+
+
+.text {
+    color: white;
+    font-size: 20px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+.artists {
+    opacity: 1;
+}
+  
+.artists:hover {
+    opacity: 0.5;
+}

@@ -6,8 +6,6 @@ import { LinkContainer } from "react-router-bootstrap";
 import {ThemeContext, themes} from './libs/contextLib';
 
 
-let isAuthenticated=false;
-
 
 class App extends React.Component{
   constructor(props) {
@@ -139,22 +137,10 @@ class App extends React.Component{
             <Nav className="mr-sm-2">
               <Nav activeKey={window.location.pathname}>
 
-                {isAuthenticated ? (
-                  <Nav.Link style={{color:this.state.theme.text}}>Logout</Nav.Link>
-                ) : (
-                  <>
-                    <LinkContainer to="/signup" style={{color:this.state.theme.text}}>
-                      <Nav.Link >Signup</Nav.Link>
-                    </LinkContainer>
-                    <LinkContainer to="/login" style={{color:this.state.theme.text}}>
-                      <Nav.Link  >Login</Nav.Link>
-                    </LinkContainer>
-                  </>
-                )}
                 <LinkContainer to="/AboutUs" style={{color:this.state.theme.text}}>
                   <Nav.Link  >About Us</Nav.Link>
                 </LinkContainer>
-                <LinkContainer to="/Wall" style={{color:this.state.theme.text}}>
+                <LinkContainer to="/Analytics" style={{color:this.state.theme.text}}>
                   <Nav.Link  >Content</Nav.Link>
                 </LinkContainer>
               </Nav>

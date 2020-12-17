@@ -3,7 +3,7 @@ import Card from 'react-bootstrap/Card';
 import Image from 'react-bootstrap/Image';
 import CardDeck from 'react-bootstrap/CardDeck';
 import Logo from "./../images/spotifyLogo.svg?text=Noc";
-import Arrow from "./../images/Arrow_right.svg?text=Noc";
+import Arrow from "./../images/Arrow.svg?text=Noc";
 
 class Cards extends React.Component {
   render() {
