@@ -128,7 +128,14 @@ class App extends React.Component{
         </div> 
     </div>
     <div style={{background:this.state.theme.text,height:"30vh"}}>
-      <Button variant="outline-dark" style={{color:this.state.theme.body,border:this.state.theme.body}}onClick={this.switchModes}>Dark Mode</Button>
+      {(this.state.theme===themes.dark||this.state.theme===themes.dark1||this.state.theme===themes.dark2)?(
+        <Button variant="outline-dark" style={{color:this.state.theme.body,border:this.state.theme.body,width:'100%',height:'100%'}}onClick={this.switchModes} > We Made more themes. Click anywhere on the bottom panel to find out.</Button>
+      ):
+      (
+        <Button variant="outline-light" style={{color:this.state.theme.body,border:this.state.theme.body,width:'100%',height:'100%'}}onClick={this.switchModes} >We Made more themes. Click anywhere on the bottom panel to find out.</Button>
+      )
+      }
+      
     </div>
     </div>
   );}
