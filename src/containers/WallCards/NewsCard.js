@@ -1,11 +1,22 @@
 import React from 'react';
-import { Card } from 'react-bootstrap';
+import { Card, OverlayTrigger,Popover } from 'react-bootstrap';
 import './Recommendations.css';
 import Logo from './../images/snow.jpg';
 import Logo1 from './../images/waterfall.jpg'
 import ListGroup from 'react-bootstrap/ListGroup'
 import ListGroupItem from 'react-bootstrap/ListGroup'
 import CardColumns from 'react-bootstrap/CardColumns'
+
+const popover = (
+  <Popover id="popover-basic">
+    <Popover.Title as="h3">Popover right</Popover.Title>
+    <Popover.Content>
+      And here's some <strong>amazing</strong> content. It's very engaging.
+      right?
+    </Popover.Content>
+  </Popover>
+);
+
 
 
 class NewsCard extends React.Component {
@@ -53,9 +64,21 @@ class NewsCard extends React.Component {
 
   
     render() {
+
+      const popover = (
+        <Popover style={{backgroundColor:this.props.info.theme.body}}id="popover-basic">
+          <Popover.Title style={{color:this.props.info.theme.text,backgroundColor:this.props.info.theme.body}} as="h3">Popover right</Popover.Title>
+          <Popover.Content style={{color:this.props.info.theme.text,backgroundColor:this.props.info.theme.body}}>
+            And here's some <strong>amazing</strong> content. It's very engaging.
+            right?
+          </Popover.Content>
+        </Popover>
+      );
       return (
-        
-        <Card style={{maxWidth:'25vw'}}><div>
+        <OverlayTrigger trigger="hover" placement="auto" overlay={popover}>
+
+    
+        <Card style={{maxWidth:'25vw',background:this.props.info.theme.text}}><div>
           {(this.state.image==1)? (<Card.Img variant="top" src={Logo1}/>):(
                 <>
                  {(this.state.image==2)? (<Card.Img variant="top" src={Logo}/>):(
@@ -88,32 +111,27 @@ class NewsCard extends React.Component {
         </div>
                
               
-                    <ListGroup>
-                      <ListGroup.Item action onClick={() => this.b1()}>
+                    <ListGroup style={{background:this.props.info.theme.body}}>
+                      <ListGroup.Item style={{color:this.props.info.theme.body,background:this.props.info.theme.text}} action onClick={() => this.b1()}>
                        {this.state.image}
                       </ListGroup.Item>
-                      <ListGroup.Item action onClick={() => this.b2()}>
+                      <ListGroup.Item style={{color:this.props.info.theme.body,background:this.props.info.theme.text}} action onClick={() => this.b2()}>
                         Link 2
                       </ListGroup.Item>
-                      <ListGroup.Item action onClick={() => this.b3()}>
+                      <ListGroup.Item style={{color:this.props.info.theme.body,background:this.props.info.theme.text}} action onClick={() => this.b3()}>
                         Link 3
                       </ListGroup.Item>
-                      <ListGroup.Item action onClick={() => this.b4()}>
+                      <ListGroup.Item style={{color:this.props.info.theme.body,background:this.props.info.theme.text}} action onClick={() => this.b4()}>
                         Link 4
                       </ListGroup.Item>
-                      <ListGroup.Item action onClick={() => this.b5()}>
+                      <ListGroup.Item style={{color:this.props.info.theme.body,background:this.props.info.theme.text}} action onClick={() => this.b5()}>
                         Link 5
                       </ListGroup.Item>
                     </ListGroup>
        
              </Card>
-        //  {(this.state.theme.id==="d0" || this.state.theme.id==="d1" || this.state.theme.id==="d2") ? (
-        //   <Button variant="outline-light" style={{color:this.state.theme.text,border:this.state.theme.text}}onClick={this.toggleTheme}>Light Mode</Button>
-        // ) : (
-        //   <>
-        //    <Button variant="outline-dark" style={{color:this.state.theme.text,border:this.state.theme.text}}onClick={this.toggleTheme}>Dark Mode</Button>
-        //   </>
-        // )}
+             </OverlayTrigger>
+       
 
       );
     }

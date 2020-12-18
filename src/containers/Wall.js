@@ -2,6 +2,9 @@ import React,{ useState } from "react";
 import Reccomendation from  "./WallCards/Recommendations";
 import Stat from  "./WallCards/Ranking";
 import NewsCard from "./WallCards/NewsCard"
+import Tooltip from 'react-bootstrap/Tooltip'
+import OverlayTrigger from 'react-bootstrap/OverlayTrigger'
+import Button from 'react-bootstrap/Button' 
 import Fade from 'react-bootstrap/Fade'
 
 import Logo from './images/waterfall.jpg'
@@ -14,6 +17,10 @@ import TabContainer from 'react-bootstrap/TabContainer'
 import Image from 'react-bootstrap/Image'
 import { CardColumns } from "react-bootstrap";
 import Ranking from "./WallCards/Ranking";
+
+
+
+
 
 class Wall extends React.Component {
   
@@ -167,10 +174,12 @@ class Wall extends React.Component {
           
           
           <CardColumns className="mx-auto" style={{maxWidth:'80vw'}}>
-            <div style={{height:''}}>
+            
+           
+            
+            <NewsCard info={this.props.theme}/>
             
             
-              <NewsCard/>  
              
               <div style={{width:'25vw'}}>
             <Stat info={this.props.theme}/>  
@@ -179,7 +188,7 @@ class Wall extends React.Component {
               <Reccomendation info={this.props.theme}/> 
             
             </div>  
-            </div>
+  
            
           
           
@@ -202,7 +211,7 @@ class Wall extends React.Component {
             </div>
             
             <div style={{}}>
-              <NewsCard/>    
+              <NewsCard  info={this.props.theme}/>    
             </div>
             <div style={{width:'25vw'}}>
             <Stat info={this.props.theme}/>  
